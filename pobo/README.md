@@ -1,1 +1,0 @@
-# pobo_compary
