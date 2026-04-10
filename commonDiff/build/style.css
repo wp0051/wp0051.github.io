@@ -89,3 +89,7 @@ textarea:focus {
 		height: 99%; /* Hide scroll bar in Firefox */
 	}
 }
+
+#__caoliao-browser-ext-root{
+	display: none !important;
+}
