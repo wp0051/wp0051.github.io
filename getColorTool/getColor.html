@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html data-immersive-translate-page-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+   	<title> 图片取色器/拾色器</title>
+     	<meta name="robots" content="max-image-preview:large">
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+</style>
+<link rel="stylesheet" id="wpProQuiz_front_style-css" href="./getColor/wpProQuiz_front.min.css" type="text/css" media="all">
+<meta name="keywords" content="图片取色器/拾色器">
+<meta name="description" content="在线图片取色器是一款非常简单实用取色器工具，我们可以通过上传图片，并点击图片中的图形区域即可对图片进行取色。鼠标点击图片显示区域中的图片即可在下方显示点击位置的颜色值（颜色值分为十六进制与RBGA两种方式显示）。..">
+			
+    	
+    <!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="./getColor/bootstrap.min.css">
+
+   <!-- Custom Fonts -->
+   <link href="./getColor/all.min.css" rel="stylesheet">
+    <!-- PHP 代码 -->
+    <link rel="stylesheet" href="./getColor/style.css">
+
+    <!-- <script src="./getColor/hm.js"></script> -->
+	<script src="./getColor/jquery.min.js"></script>
+  <script src="./getColor/clipboard.min.js"></script>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+</head>
+
+<body>
+<style>
+
+.navbar-nav .nav-item {
+  white-space: nowrap; /* 防止li内部换行 */
+}
+
+.navbar-nav .nav-link {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* 防止链接文字换行 */
+}
+.navbar,.page-footer {
+
+background: rgb(75, 81, 104);
+border-width: 0px 0px 3px;
+border-bottom: 3px solid transparent;
+border-image: linear-gradient(90deg, rgb(141, 66, 108) 16%, rgb(81, 153, 211) 16%, rgb(81, 153, 211) 32%, rgb(34, 201, 148) 32%, rgb(34, 201, 148) 48%, rgb(240, 198, 18), 48%, rgb(240, 198, 18), 64%, rgb(255, 171, 77) 64%, rgb(255, 171, 77) 82%, rgb(210, 70, 93) 82%) 1 / 1 / 0 stretch;
+}
+.page-footer {
+  border-top: 3px solid transparent;
+  border-width: 3px 0px 0px;
+}
+</style>
+
+<script>
+var is_home = false;
+</script>
+<style>
+.runoob-page-content {
+    margin: 0 20px;
+}
+</style>
+
+
+<div class="runoob-page-content">	
+<style>
+.thumbnail{
+	position:relative;
+	display: block;
+	width: 90%;
+	overflow:hidden;
+	margin: 0 auto;
+	margin-top: 60px;
+}
+.thumbnail img {
+	display: block;
+	width: 100%;
+	cursor: crosshair;
+	border: 5px solid #fff;
+	margin: 0 auto;
+}
+.fileInputStyle{
+      position:absolute;
+      left:-9999px;
+      top:-9999px;
+      z-index:-9999;
+}
+.preview{
+	position:absolute;
+	top:5px;
+	right:5px;
+	display:block;
+	margin:0;
+	padding:0;
+	width:50px;
+	height:50px;
+	border: 5px solid #FFF;
+	border-right: none;
+	border-top: none;
+}
+
+@media (min-width:768px){
+	.thumbnail{
+		width:85%;
+	}
+}
+@media (min-width:1024px){
+	.thumbnail{
+		width:55%;
+	}
+}
+.list-group-horizontal .list-group-item {
+	display: inline-block;
+}
+.list-group-horizontal .list-group-item {
+	margin-bottom: 0;
+	margin-left:-4px;
+	margin-right: 0;
+	width:80px;
+	height:40px;
+}
+.list-group-horizontal .list-group-item:first-child {
+	border-top-right-radius:0;
+	border-bottom-left-radius:4px;
+}
+.list-group-horizontal .list-group-item:last-child {
+	border-top-right-radius:4px;
+	border-bottom-left-radius:0; 
+}
+</style>
+<script src="./getColor/color-thief.min.js"></script>
+<link rel="stylesheet" href="./getColor/app.css" media="all">
+<div class="row">
+  <div class="col-md-12">
+    <div class="card"><div id="compiler" class="card-header">
+        <form class="form-inline" role="form"><label><strong style="font-size: 16px">图片取色器/拾色器</strong></label><label><button type="button" class="btn btn-outline-danger ml-1" id="uploadButton"> 上传图片</button></label><label><input type="file" id="fileInput" class="fileInputStyle"></label></form>
+      </div>
+      <div class="card-body">
+        <form role="form" id="compiler-form">
+          <div class="form-group">
+            <div class="row">
+              <div class="thumbnail">
+                <div class="preview" style="background: rgb(130, 130, 130);"></div><img class="img-rounded" src="" style="cursor: crosshair;"><canvas style="display: none;" width="308" height="74"></canvas>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="alert alert-success" style="display:none;">复制完成。</div>
+            <div class="resultPlan"></div>
+          </div>
+          <div class="col-md-12">
+            <div class="result">
+              <table class="table table-striped">
+                <tbody><tr>
+                  <td>
+                    <div class="input-group input-group-lg">
+                      <div class="input-group-prepend"><span class="input-group-text">HEX:</span></div><input id="hex" type="text" class="form-control" placeholder="HEX">
+                      <div class="input-group-append"><span class="input-group-text" id="copycode1"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg></span></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input-group input-group-lg">
+                      <div class="input-group-prepend"><span class="input-group-text">RGB:</span></div><input id="rgb" type="text" class="form-control" placeholder="RGB">
+                      <div class="input-group-append"><span class="input-group-text" id="copycode2"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg></span></div>
+                    </div>
+                  </td>
+                </tr>
+                
+              </tbody></table>
+            </div>
+          </div>
+<div class="col-md-12">
+<!-- search-->
+<header class="flex items-center">
+      <div class="header__logo mr05">色卡</div>
+      <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" data-btn-info="" type="button" aria-label="project info" style="display: none; --mdc-ripple-fg-size: 0px; --mdc-ripple-fg-scale: NaN; --mdc-ripple-left: 0px; --mdc-ripple-top: 0px;">
+        <svg class="mdc-icon-button__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"></path>
+        </svg>
+      </button>
+      <div class="header__input-wrapper flex flex-auto">
+        <div class="flex items-center">
+          <button class="mdc-button mdc-ripple-upgraded" data-btn-color-picker="" type="button" aria-label="toggle color picker dialog" role="button" style="transition: none; color: rgb(37, 37, 38);">
+            <span class="mdc-button__ripple"></span>
+            <svg class="mdc-button__icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.92,19L5,17.08L13.06,9L15,10.94M20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L13.84,6.41L11.91,4.5L10.5,5.91L11.92,7.33L3,16.25V21H7.75L16.67,12.08L18.09,13.5L19.5,12.09L17.58,10.17L20.7,7.05C21.1,6.65 21.1,6 20.71,5.63Z"></path>
+            </svg>
+            <span class="mdc-button__label header__preview-color"></span>
+          </button>
+        </div>
+        <label data-color-input="" class="mdc-text-field mr05 mdc-text-field--label-floating mdc-ripple-upgraded">
+          <span class="mdc-text-field__ripple"></span>
+          <input id="mdc-color" class="mdc-text-field__input" aria-labelledby="text-field-color-input" value="#6200ee" required="">
+          <span class="mdc-floating-label mdc-floating-label--float-above" id="text-field-color-input">Color</span>
+          <span class="mdc-line-ripple"></span>
+        </label>
+        <label data-percent-input="" class="mdc-text-field mdc-text-field--with-leading-icon mdc-text-field--label-floating mdc-ripple-upgraded">
+          <span class="mdc-text-field__ripple"></span>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.5 3.5L20.5 5.5L5.5 20.5L3.5 18.5L18.5 3.5M7 4C8.66 4 10 5.34 10 7C10 8.66 8.66 10 7 10C5.34 10 4 8.66 4 7C4 5.34 5.34 4 7 4M17 14C18.66 14 20 15.34 20 17C20 18.66 18.66 20 17 20C15.34 20 14 18.66 14 17C14 15.34 15.34 14 17 14M7 6C6.45 6 6 6.45 6 7C6 7.55 6.45 8 7 8C7.55 8 8 7.55 8 7C8 6.45 7.55 6 7 6M17 16C16.45 16 16 16.45 16 17C16 17.55 16.45 18 17 18C17.55 18 18 17.55 18 17C18 16.45 17.55 16 17 16Z"></path>
+            </svg>
+          </span>
+          <input class="mdc-text-field__input" aria-labelledby="text-field-percent-input" type="number" inputmode="decimal" value="10" min="1" max="100" step="0.1" required="">
+          <span class="mdc-floating-label mdc-floating-label--float-above" id="text-field-percent-input">Percent factor</span>
+          <span class="mdc-line-ripple"></span>
+        </label>
+      </div>
+    </header>
+
+    <main><div class="colors-collection widget">
+      <div class="color-item widget -is-tint -is-light" style="background-color: rgb(255, 255, 255);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">tint</p>
+          <p class="widget percentage--label">100%</p>
+        </div>
+        <p class="widget hex--label">#ffffff</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-tint -is-light" style="background-color: rgb(233, 233, 233);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">tint</p>
+          <p class="widget percentage--label">90%</p>
+        </div>
+        <p class="widget hex--label">#e9e9e9</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-tint -is-light" style="background-color: rgb(211, 211, 212);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">tint</p>
+          <p class="widget percentage--label">80%</p>
+        </div>
+        <p class="widget hex--label">#d3d3d4</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-tint -is-light" style="background-color: rgb(190, 190, 190);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">tint</p>
+          <p class="widget percentage--label">70%</p>
+        </div>
+        <p class="widget hex--label">#bebebe</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-tint -is-light" style="background-color: rgb(168, 168, 168);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">tint</p>
+          <p class="widget percentage--label">60%</p>
+        </div>
+        <p class="widget hex--label">#a8a8a8</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-tint -is-light" style="background-color: rgb(146, 146, 147);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">tint</p>
+          <p class="widget percentage--label">50%</p>
+        </div>
+        <p class="widget hex--label">#929293</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-tint -is-dark" style="background-color: rgb(124, 124, 125);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">tint</p>
+          <p class="widget percentage--label">40%</p>
+        </div>
+        <p class="widget hex--label">#7c7c7d</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-tint -is-dark" style="background-color: rgb(102, 102, 103);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">tint</p>
+          <p class="widget percentage--label">30%</p>
+        </div>
+        <p class="widget hex--label">#666667</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-tint -is-dark" style="background-color: rgb(81, 81, 81);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">tint</p>
+          <p class="widget percentage--label">20%</p>
+        </div>
+        <p class="widget hex--label">#515151</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-tint -is-dark" style="background-color: rgb(59, 59, 60);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">tint</p>
+          <p class="widget percentage--label">10%</p>
+        </div>
+        <p class="widget hex--label">#3b3b3c</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-base -is-dark" style="background-color: rgb(37, 37, 38);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">base</p>
+          <p class="widget percentage--label">0%</p>
+        </div>
+        <p class="widget hex--label">#252526</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-shade -is-dark" style="background-color: rgb(33, 33, 34);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">shade</p>
+          <p class="widget percentage--label">10%</p>
+        </div>
+        <p class="widget hex--label">#212122</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-shade -is-dark" style="background-color: rgb(30, 30, 30);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">shade</p>
+          <p class="widget percentage--label">20%</p>
+        </div>
+        <p class="widget hex--label">#1e1e1e</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-shade -is-dark" style="background-color: rgb(26, 26, 27);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">shade</p>
+          <p class="widget percentage--label">30%</p>
+        </div>
+        <p class="widget hex--label">#1a1a1b</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-shade -is-dark" style="background-color: rgb(22, 22, 23);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">shade</p>
+          <p class="widget percentage--label">40%</p>
+        </div>
+        <p class="widget hex--label">#161617</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-shade -is-dark" style="background-color: rgb(19, 19, 19);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">shade</p>
+          <p class="widget percentage--label">50%</p>
+        </div>
+        <p class="widget hex--label">#131313</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-shade -is-dark" style="background-color: rgb(15, 15, 15);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">shade</p>
+          <p class="widget percentage--label">60%</p>
+        </div>
+        <p class="widget hex--label">#0f0f0f</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-shade -is-dark" style="background-color: rgb(11, 11, 11);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">shade</p>
+          <p class="widget percentage--label">70%</p>
+        </div>
+        <p class="widget hex--label">#0b0b0b</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-shade -is-dark" style="background-color: rgb(7, 7, 8);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">shade</p>
+          <p class="widget percentage--label">80%</p>
+        </div>
+        <p class="widget hex--label">#070708</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-shade -is-dark" style="background-color: rgb(4, 4, 4);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">shade</p>
+          <p class="widget percentage--label">90%</p>
+        </div>
+        <p class="widget hex--label">#040404</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div><div class="color-item widget -is-shade -is-dark" style="background-color: rgb(0, 0, 0);">
+      <div>
+        <div class="item_percent flex items-center">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-shade">
+      <path d="M12 2A10 10 0 1 1 2 12A10 10 0 0 1 12 2Z"></path>
+    </svg>
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" class="widget icon-tint">
+      <path d="M12 20A8 8 0 1 1 20 12A8 8 0 0 1 12 20M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Z"></path>
+    </svg>
+          <p class="widget sr-only" style="margin: 0">shade</p>
+          <p class="widget percentage--label">100%</p>
+        </div>
+        <p class="widget hex--label">#000000</p>
+      </div>
+      <div class="color-item__copy-btn">
+        <button class="mdc-icon-button widget mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" type="button" aria-label="copy" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 1.7142857142857142; --mdc-ripple-left: 10px; --mdc-ripple-top: 10px;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="widget mdc-icon-button__icon">
+      <path d="M0 0h24v24H0V0z" fill="none"></path><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4H8c-1.1 0-1.99.9-1.99 2L6 21c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V11l-6-6zM8 21V7h6v5h5v9H8z"></path>
+    </svg>
+    </button>
+      </div>
+    </div>
+    </div></main>
+    <script src="./getColor/index.js"></script>
+    
+<!-- end -->
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var ImageColorPicker = function(img_selector, opt){
+
+// vars
+var x = '', y = '';
+var inst = this;
+var d = document;
+
+// constructor
+opt = (typeof opt === 'object') ? opt : {};
+
+inst.img = _(img_selector);
+
+if(!inst.img){
+	return;
+}
+
+inst.img.style.cursor = 'crosshair';
+
+// create canvas
+if(opt.canvas){
+	inst.canvas = opt.canvas;
+}
+else {
+	inst.canvas = d.createElement('canvas');
+	inst.img.parentNode.insertBefore(inst.canvas, inst.img.nextSibling);
+}
+inst.canvas.style.display = 'none';
+
+// optional public containers
+inst.preview = opt.preview ? _(opt.preview) : d.createElement('div');
+
+// default
+inst.result_hex = '';
+inst.result_rgb = [];
+inst.result_rgb_string = '';
+
+// callbacks
+var clicked = opt.clicked || function(){};
+
+// click function
+inst.img.addEventListener('click', function(e){
+	// chrome
+	if(e.offsetX) {
+		x = e.offsetX;
+		y = e.offsetY; 
+	}
+	// firefox
+	else if(e.layerX) {
+		x = e.layerX;
+		y = e.layerY;
+	}
+	useCanvas(inst.canvas, inst.img, function(){
+		// get image data
+		inst.result_rgb = inst.canvas.getContext('2d')
+			.getImageData(x, y, 1, 1).data;
+		
+		var p = inst.result_rgb;
+		
+		// show info
+		inst.result_hex = rgbToHex(p[0],p[1],p[2]);
+		inst.result_rgb_string = 'rgb('+p[0]+','+ p[1]+','+ p[2]+')';
+		
+		// callback
+		clicked(inst);
+	});
+}, false);
+
+// preview function mousemove
+inst.img.addEventListener('mousemove', function(e){
+	// chrome
+	if(e.offsetX) {
+		x = e.offsetX;
+		y = e.offsetY; 
+	}
+	// firefox
+	else if(e.layerX) {
+		x = e.layerX;
+		y = e.layerY;
+	}
+	
+	useCanvas(inst.canvas, inst.img, function(){
+		// get image data
+		var p = inst.canvas.getContext('2d')
+			.getImageData(x, y, 1, 1).data;
+		
+		// show preview color
+		inst.preview.style.background = rgbToHex(p[0],p[1],p[2]);
+	});
+}, false);
+
+// default first pixel canvas
+useCanvas(inst.canvas, inst.img, function(){
+	// console.log('first init');
+});
+
+// check img resize
+function checkCanvasSize(el, image){
+	return el.width == image.width && el.height == image.height;
+}
+
+// canvas function
+function useCanvas(el, image, callback){
+	if(!checkCanvasSize(el, image)){
+		el.width = image.width; // img width
+		el.height = image.height; // img height
+		
+		// draw image in canvas tag
+		el.getContext('2d').drawImage(image, 0, 0, image.width, image.height);
+	}
+	
+	return callback();
+}
+
+// short querySelector
+function _(el){
+	return d.querySelector(el);
+};
+
+function componentToHex(c) {
+	var hex = c.toString(16);
+	return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+	return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+function findPos(obj) {
+	var curleft = 0, curtop = 0;
+	if (obj.offsetParent) {
+		do {
+			curleft += obj.offsetLeft;
+			curtop += obj.offsetTop;
+		} while (obj = obj.offsetParent);
+		
+		return { x: curleft, y: curtop };
+	}
+}
+};
+</script>
+<script>
+var colorPicker = new ImageColorPicker ('.thumbnail img', {
+	preview: '.preview',
+	clicked: function(data){
+		// instance data
+		//console.log(data);
+		
+		document.getElementById('hex').value = data.result_hex;
+		document.getElementById('rgb').value = data.result_rgb_string;
+		
+		document.getElementById('compiler-form').style.background = data.result_hex;
+		location.hash = data.result_hex; 
+	}
+});
+</script>
+<script>
+function generateMixed(n) {
+    var chars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    var res = "";
+    for(var i = 0; i < n ; i ++) {
+      var id = Math.ceil(Math.random()*35);
+      res += chars[id];
+    }
+    return res;
+}
+
+$(function(){
+    //阻止浏览器默认行。
+    $(document).on({
+      dragleave:function(e){		//拖离
+        e.preventDefault();
+      },
+      drop:function(e){			//拖后放
+        e.preventDefault();
+      },
+      dragenter:function(e){		//拖进
+        e.preventDefault();
+      },
+      dragover:function(e){		//拖来拖去
+        e.preventDefault();
+      }
+    });
+
+    function setUpload(fileList){
+    	
+      var myfile = fileList[0],
+      reader = new FileReader();
+     // var resultPlan = '<textarea class="resultBox" style="margin:50px auto;width:80%;height:300px; margin: auto 10%;"></textarea>';
+     // var len = $(".resultBox").length;
+      reader.readAsDataURL(myfile);
+      reader.onload = function(e) {
+       // len <= 0 && $(resultPlan).appendTo(".resultPlan");
+        $(".resultBox").val(e.target.result);
+        $(".img-rounded").attr("src", e.target.result);
+      }
+    };
+    function dragUpload(e){
+      e.preventDefault();
+      setUpload(e.dataTransfer.files);
+    }
+
+    function clickUpload(){
+      var fileinput = $("#fileInput");
+      fileinput.trigger("click");
+      fileinput.on("change",function(e){
+        e.preventDefault();
+        setUpload(this.files);
+      });
+    };
+
+    var box = document.getElementById('compiler-form'); //拖拽区域
+	var uploadButton = document.getElementById('uploadButton'); //拖拽区域
+    box.addEventListener("drop", dragUpload, false);
+    uploadButton.addEventListener("click", clickUpload, false);
+  });
+
+new ClipboardJS('#copycode1', {
+	text: function(trigger) {
+		return $("#hex").val();
+	}
+}).on('success', function(e) {
+   $(".alert-success").show().delay(2500).fadeOut();
+    e.clearSelection();
+}).on('error', function(e) {
+    alert('Error!');
+});
+
+new ClipboardJS('#copycode2', {
+	text: function(trigger) {
+		return $("#rgb").val();
+	}
+}).on('success', function(e) {
+   $(".alert-success").show().delay(2500).fadeOut();
+    e.clearSelection();
+}).on('error', function(e) {
+    alert('Error!');
+});
+</script>
+<script>
+
+//------palette----
+$(function() {
+	const colorThief = new ColorThief();
+	var img = document.querySelector('img');
+	var _optionHtml = '';
+	var palette;
+	// Make sure image is finished loading
+	if (img.complete) {
+		//result = colorThief.getColor(img);
+		palette = colorThief.getPalette(img);
+	} else {
+		img.addEventListener('load', function() {
+		//result = colorThief.getColor(img);
+		palette = colorThief.getPalette(img);
+		});
+	}
+	$(".img-rounded").one("load", function() {
+		if(this.complete) {
+			palette = colorThief.getPalette(img);
+			_optionHtml = '';
+			$.each( palette, function( key, value ) {
+				_rgb = "rgb("+value[0] + "," + value[1] + "," +value[2]+")";
+				_hex = rgbToHex(value[0],value[1],value[2]);
+				_optionHtml += "<a onclick=setColor(\""+_rgb+"\",\""+  _hex +"\") style=\"background-color:"+_rgb+"\" href=\"javascript:;\" class=\"list-group-item\"></a>"
+			});
+			$(".list-group-horizontal").html(_optionHtml);
+		}
+	});
+
+	
+	$.each( palette, function( key, value ) {
+		_rgb = "rgb("+value[0] + "," + value[1] + "," +value[2]+")";
+		_hex = rgbToHex(value[0],value[1],value[2]);
+		_optionHtml += "<a onclick=setColor(\""+_rgb+"\",\""+  _hex +"\") style=\"background-color:"+_rgb+"\" href=\"javascript:;\" class=\"list-group-item\"></a>"
+	});
+	$(".list-group-horizontal").html(_optionHtml);
+
+
+})
+
+function setColor(_rgb, _hex) {
+	$("#hex").val(_hex);
+	$("#rgb").val(_rgb);
+	$(".preview").css("background-color",_hex);
+	$("#compiler-form").css("background-color",_hex);
+	location.hash = _hex;
+	
+}
+
+function componentToHex(c) {
+	var hex = c.toString(16);
+	return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+	return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+function findPos(obj) {
+	var curleft = 0, curtop = 0;
+	if (obj.offsetParent) {
+		do {
+			curleft += obj.offsetLeft;
+			curtop += obj.offsetTop;
+		} while (obj = obj.offsetParent);
+		
+		return { x: curleft, y: curtop };
+	}
+}
+//----------   
+</script>
+</div>
+<script src="./getColor/bootstrap.bundle.min.js"></script>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/toolrunoob2/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script>
+
+
+$(function() {
+  // 当点击搜索图标时
+  $(".search-icon").click(function() {
+    $(this).parent().siblings().toggle();
+  });
+
+  // 监听搜索框的输入事件
+  $('.search-input').on('input', function() {
+      const query = $(this).val().toLowerCase();
+      $(this).parent().parent().parent().siblings().find('a').each(function() {
+          const linkText = $(this).text().toLowerCase();
+          if (linkText.includes(query)) {
+              $(this).parent().show();
+          } else {
+            $(this).parent().hide();
+          }
+      });
+  });
+	//代码高亮
+
+  if ($('[data-toggle="tooltip"]').length > 0) {
+    $('[data-toggle="tooltip"]').tooltip();
+  }
+
+  if(is_home || $('#goto').length > 0) {
+    $(window).scroll(function () {
+      var _stop = $(window).scrollTop();
+      if(_stop>=100) {
+        $("#go-top").fadeIn();
+        
+      }else {
+        $("#go-top").fadeOut();
+      }
+    });
+    _current_hash = window.location.hash;
+   // console.log(_current_hash);
+    if(_current_hash) {
+     
+        var $targetEle = $(_current_hash);
+        var sTop =  $targetEle.offset().top;
+        $('html, body').stop().animate({
+            'scrollTop':sTop-100
+        }, 300, 'swing', function (e) {
+         // window.location.hash = targetEle;
+        }); 
+        console.log(sTop);
+        return false;
+     
+    }
+    $("#go-top").click(function(event){	
+     $('html,body').animate({scrollTop:0}, 100);
+     return false;
+    });
+    // 导航
+    var _html_nav='<a class="nav-link active" href="javascript:void();"><i class="fa fa-compass" aria-hidden="true"></i> 快速导航</a>';
+    var _html_right_nav = '<button class="dropdown-item" href="#"><i class="fa fa-th-list" aria-hidden="true"></i> 快速导航</button><div class="dropdown-divider"></div>';
+    var _html_left_nav = '<dt><span class="show-list"></span></dt>';
+    console.log(data_hrefs)
+  
+    for (var i=0;i<data_hrefs.length;i++)
+    { 
+        id="runoob-goto-" + data_hrefs[i];
+        var originalId = data_hrefs[i];
+        // 每一次循环开始，必须清空图标变量
+        var _html_icon = '';
+
+        // 检查 sites_array2 是否可用
+        if (typeof sites_array2 !== 'undefined' && Array.isArray(sites_array2)) {
+            // 修改匹配逻辑：用 originalId (数字) 去匹配 sites_array2 里的 id
+            var currentItem = sites_array2.find(function(item) {
+                return item.id == originalId; 
+            });
+
+            if (currentItem && currentItem.icon) {
+                //_html_icon = '<i class="' + currentItem.icon + '"></i> '; 
+            }
+        }
+
+     
+        _html_nav += '<a class="nav-link" href="#'+id+'">'+$("#"+id).data("text")+'</a>';
+        _html_right_nav +='<button class="dropdown-item" onclick="location.href=\'#'+id+'\'" type="button"><i class="fa fa-caret-right" aria-hidden="true"></i> '+$("#"+id).data("text")+'</button>' ;
+        _html_left_nav +='<dd><a href="#'+id+'" class="auto-scroll" data-offset="98" data-speed="500">'+_html_icon + $("#"+id).data("text")+'</a></dd>';
+    }
+    $(".nav-underline").html(_html_nav);
+    $("#right_nav_list").html(_html_right_nav);
+    $("#goto").html(_html_left_nav);
+    if($(".nav-scroller").is(":visible")){
+      $('a[href^="#"]').on('click', function (e) {
+       
+          e.preventDefault();
+          $(this).addClass('nav-underline-active');
+          $(this).siblings().removeClass('nav-underline-active');
+          var targetEle = this.hash;
+          var $targetEle = $(targetEle);
+          var sTop =  $targetEle.offset().top;
+          $('html, body').stop().animate({
+              'scrollTop':sTop-100
+          }, 300, 'swing', function () {
+          //   window.location.hash = targetEle;
+          });
+      });
+    } else {
+      $('a[href^="#"]').on('click', function (e) {
+          e.preventDefault();
+          
+          var targetEle = this.hash;
+          var $targetEle = $(targetEle);
+          var sTop =  $targetEle.offset().top;
+          //console.log(sTop);
+          $('html, body').stop().animate({
+              'scrollTop':sTop-98   
+          }, 300, 'swing', function () {
+          //   window.location.hash = targetEle;
+          });
+      });
+    }
+  } else { 
+    $("#top").hide();
+  }
+  
+
+  // search
+  if($('#search-name').length){
+      var _href=  $("#search-name .nav-underline-active").attr("href");
+  }
+ 
+  $('#search-name li a').each(function(){
+    $(this).on("click", function(e){
+      e.preventDefault();
+      _href = $(this).attr('href');
+      $(this).removeClass("text-muted").addClass("nav-underline-active");
+      $(this).parent().siblings().find("a").addClass("text-muted").removeClass("nav-underline-active");
+    //  console.log(_href);
+    });
+    
+  })
+
+  $('#search-button').on("click", function(e){
+   // console.log(_href);
+    _hmt.push(['_trackEvent', 'Search', 'Click', '搜索工具']);
+    keyword = $(".search").find("input:text").val();
+    window.open(_href + keyword, '_blank');
+  });
+  $(".search").find("input:text").keypress(function (e) {
+    var key = e.which;
+    if(key == 13)  // the enter key code
+    {
+      window.open(_href + $(this).val(), '_blank'); 
+      return false;  
+    }
+  });  
+
+});
+
+ // 为 <pre> 标签添加复制按钮
+ function addCopyButton(pre) {
+    const button = document.createElement('button');
+    button.className = 'copy-button';
+    button.innerHTML = '<i class="fas fa-copy"></i>';
+
+    const container = document.createElement('div');
+    container.className = 'code-container-jyshare';
+    pre.parentNode.insertBefore(container, pre);
+    container.appendChild(pre);
+    container.appendChild(button);
+
+    // console.log('按钮已插入:', button); // 检查按钮是否插入成功
+
+    button.addEventListener('click', () => {
+      //   console.log('按钮被点击'); // 检查点击事件是否触发
+        if (!navigator.clipboard) {
+            alert('您的浏览器不支持复制功能，请手动复制代码。');
+            return;
+        }
+
+        const codeBlock = pre.querySelector('code') || pre;
+        navigator.clipboard.writeText(codeBlock.textContent)
+            .then(() => {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-copy"></i>';
+                }, 3000);
+            })
+            .catch(err => {
+                console.error('复制失败:', err);
+                button.innerHTML = '<i class="fas fa-times"></i>';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-copy"></i>'; 
+                }, 3000);
+            });
+    });
+}
+
+(function($){ 
+  var p=$('.runoob-item-index'); 
+  if(p.length<1) return;
+  var arr=[];
+  function part_offset_top() {
+    p.each(function () {
+      var of=$(this).offset();
+      arr.push(Math.floor(of.top));
+    });
+  }
+  function goto_current(index) {
+    var a=$('#goto dd');
+    var b=$('#goto dt');
+    if(a.length<1) return;
+    var h=a.outerHeight();
+    if (!a.eq(index).hasClass('current')) {
+      a.removeClass('current');
+      a.eq(index).addClass('current');
+     // console.log(index)
+      b.animate({
+        'top': h*index+(a.outerHeight()-b.outerHeight())/2+1
+      },50);
+    }
+  }
+  function window_scroll() {
+    var st=window.pageYOffset
+    			|| document.documentElement.scrollTop
+    			|| document.body.scrollTop
+    			|| 0;
+    var limit=Math.ceil(st+98);
+    var index=0;
+    for (var i = 0; i < arr.length; i++) {
+      if (limit>=arr[i]) {
+        index=i;
+      }else{
+        break;
+      }
+    }
+    if (index<0) index=0;
+    if (!p.eq(index).hasClass('current')) {
+      p.removeClass('current');
+      p.eq(index).addClass('current');
+      goto_current(index);
+    }
+  }
+  part_offset_top();
+  setTimeout(window_scroll,0);
+  $(window).on('scroll',window_scroll);
+})(jQuery);
+/* --侧边栏滚动时固定-- */
+(function($){
+  var s=$('.sidebar');
+  
+  if(s.length<1) return;
+  var c=s.children('.content-sidebar');
+  if(c.length<1) return;
+  var $parent=s.parent();
+  if($parent.length<1) return;
+  var start=0,stop=0,cHeight=0;
+  function init() {
+    var soffset=s.offset();
+    start=soffset.top;
+    stop=start+$parent.height();
+    cinit();
+  }
+  function cinit() {
+    cHeight=c.height();
+  }
+  function cClear(){
+    c.removeClass('fixed');
+    c.removeClass('absolute');
+  }
+  function check_scroll(){
+    var st=window.pageYOffset
+    			|| document.documentElement.scrollTop
+    			|| document.body.scrollTop
+    			|| 0;
+    if (st<=start) {
+      cClear();
+    }
+    if (st>=stop-cHeight) {
+      c.removeClass('fixed');
+      c.addClass('absolute');
+      return;
+    }
+    if (st<stop-cHeight && st>start) {
+      c.removeClass('absolute');
+      c.addClass('fixed');
+    }
+  }
+  
+  init();
+  check_scroll();
+  $(window).on('resize',init);
+  $(window).on('scroll',check_scroll);
+})(jQuery);
+
+(function () {
+  'use strict'
+
+  document.querySelector('#navbarSideCollapse').addEventListener('click', function () {
+    document.querySelector('.offcanvas-collapse').classList.toggle('open')
+  })
+})()
+</script>
+<div style="display:none;">
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BKSTK8N4K');
+</script>
+</div>
+
+
+<div class="modal fade" id="tg-1" tabindex="-1" role="dialog" aria-labelledby="tg-1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-bold text-danger"><i class="fas fa-comments-dollar"></i> textxx</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span> 
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="text-center">
+      xxx
+      </div>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body><style class="stylus">body .thumbnail img{width: auto;max-height: 1000px;}
+body .thumbnail .preview{position: fixed;top: 100px;right: 80px;}</style><div id="immersive-translate-popup" style="all: initial"><template shadowrootmode="open"><div id="mount" style="display: block;"></div></template></div></html>
