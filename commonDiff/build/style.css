@@ -26,7 +26,7 @@ td {
 	border: 1px solid transparent;
 }
 td div, td textarea {
-	overflow: auto;
+	/* overflow: auto; */
 	font: 1em monospace;
 	width: 100%;
 	resize: none;
